@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+// ----material---
+
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+// @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+//---bootstrap---
+
+// $primary:       $blue;
+// $secondary:     $gray-600;
+// $success:       $green;
+// $info:          $cyan;
+// $warning:       $yellow;
+// $danger:        $red;
+// $light:         $gray-100;
+// $dark:          $gray-900;
+
+$theme-colors: (
+  "indigo": #6610f2,
+  "purple": #6f42c1,
+  "pink": #d63384,
+  "orange": #fd7e14,
+  "teal": #20c997,
+  "my-primary": #6a1b9a,
+  "my-secondary": #424242,
+  "my-white": white
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Требуемое
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Опциональное
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/grid";

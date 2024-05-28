@@ -1,0 +1,32 @@
+<div class="card bg-my-primary p-2">
+  <button
+    type="button"
+    class="btn btn-outline-my-white"
+    (click)="
+      shuffleDeck(
+        'https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'
+      )
+    "
+    [disabled]="!blackJackService.takeCardStatus"
+  >
+    shuflle
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-outline-my-white"
+    (click)="makeMove(takeCardLink)"
+    [disabled]="blackJackService.takeCardStatus"
+  >
+    take
+  </button>
+
+  <button
+    type="button"
+    class="btn btn-outline-my-white"
+    (click)="passPlayer(takeCardLink)"
+    [disabled]="blackJackService.passStatus"
+  >
+    pass
+  </button>
+</div>

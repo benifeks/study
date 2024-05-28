@@ -1,0 +1,9 @@
+<div class="main">
+  <app-dice
+    class="dice"
+    [allResults]="allResults"
+    (dicesDrop)="updateResults($event)"
+  ></app-dice>
+  <app-place class="place" [allResults]="allResults"></app-place>
+  <app-info class="info" [allResults]="allResults"></app-info>
+</div>

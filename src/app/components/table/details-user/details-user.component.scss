@@ -1,0 +1,37 @@
+h3 {
+  color: blueviolet;
+}
+
+.example-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+mat-card-content {
+  word-break: break-all;
+}
+
+.mat-mdc-card {
+  background-color: gainsboro !important;
+  color: black;
+  margin: 10px;
+}
+
+.button {
+  margin-right: 5px;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.image-box {
+  display: flex;
+  flex-wrap: wrap;
+}

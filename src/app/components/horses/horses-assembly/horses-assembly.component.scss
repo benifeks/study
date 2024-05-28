@@ -1,0 +1,25 @@
+.main {
+  margin-top: 5px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.2fr;
+  grid-template-columns: 0.2fr 0.1fr 1fr;
+  grid-template-areas:
+    "info dice place "
+    "info dice place ";
+}
+
+.dice {
+  grid-area: dice;
+}
+.info {
+  grid-area: info;
+  padding: 5px 10px 5px 5px;
+}
+.place {
+  grid-area: place;
+}
+
+.just {
+  grid-area: just;
+  text-align: center;
+}
