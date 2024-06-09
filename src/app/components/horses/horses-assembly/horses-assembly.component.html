@@ -1,9 +1,25 @@
 <div class="main">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Add a new Horse</mat-label>
+      <input matInput placeholder="Orange" [(ngModel)]="color">
+      <mat-hint>Color</mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="add()">
+      Add a new Horse
+    </button>
+  </div>
   <app-dice
     class="dice"
-    [allResults]="allResults"
-    (dicesDrop)="updateResults($event)"
+    [horses]="horses"
+    (dicesDrop)="updateResults()"
+    (reset)="reset()"
   ></app-dice>
-  <app-place class="place" [allResults]="allResults"></app-place>
-  <app-info class="info" [allResults]="allResults"></app-info>
+  <app-place class="place" [horses]="horses"></app-place>
+  <app-info
+    class="info"
+    [horses]="horses"
+    [totalMileage]="totalMileage"
+    [counter]="counter"
+  ></app-info>
 </div>

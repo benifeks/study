@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HorsesService } from 'src/app/services/horses/horses.service';
-import { AllResults, DicesValue } from 'src/app/models/horses/horsesModels';
+import { Horse } from 'src/app/models/horses/horsesModels';
+
+// Fabric method
+const createNewHorse = (color: string): Horse => {
+  return {
+    color,
+    mileage: 0,
+    diceValue: 1,
+  }
+}
 
 @Component({
   selector: 'app-horses-assembly',
@@ -8,64 +16,39 @@ import { AllResults, DicesValue } from 'src/app/models/horses/horsesModels';
   styleUrls: ['./horses-assembly.component.scss'],
 })
 export class HorsesAssemblyComponent implements OnInit {
-  public allResults: AllResults = {
-    milageRed: 0,
-    milageGreen: 0,
-    milageBlue: 0,
-    totalMileage: 0,
-    counter: 0,
-    arrayMarginValue: [],
-    dicesValues: [],
-  };
+  public colors = ['Red', 'Green', 'Blue'];
+  public color = '';
+  public horses: Horse[] = [];
+  public totalMileage = 0;
+  public counter = 0;
 
   public ngOnInit(): void {
-    this.allResults.arrayMarginValue = [
-      `${this.allResults.milageRed}px`,
-      `${this.allResults.milageGreen}px`,
-      `${this.allResults.milageBlue}px`,
-    ];
-
-    this.allResults.dicesValues = [1, 1, 1];
+    this.horses = this.colors.map(createNewHorse);
   }
 
-  public constructor(public horsesService: HorsesService) {}
+  public reset(): void {
+    this.ngOnInit();
+    this.totalMileage = 0;
+    this.counter = 0;
+    this.color = '';
+  }
 
-  public updateResults(dicesValue: DicesValue): void {
-    this.allResults.dicesValues = Object.values(dicesValue);
+  public add(): void {
+    this.colors.unshift(this.color);
+    this.reset();
+  }
 
-    this.allResults.milageRed = this.horsesService.countMileage(
-      this.allResults.milageRed,
-      dicesValue.diceRed
-    );
-    this.allResults.milageGreen = this.horsesService.countMileage(
-      this.allResults.milageGreen,
-      dicesValue.diceGreen
-    );
-    this.allResults.milageBlue = this.horsesService.countMileage(
-      this.allResults.milageBlue,
-      dicesValue.diceBlue
-    );
+  public updateResults(): void {
+    this.horses.forEach((horse: Horse) => {
+      horse.diceValue = Math.floor(Math.random() * 6) + 1;
+      horse.mileage += horse.diceValue;
+    });
 
-    this.allResults.arrayMarginValue = [
-      `${this.allResults.milageRed * 5}px`,
-      `${this.allResults.milageGreen * 5}px`,
-      `${this.allResults.milageBlue * 5}px`,
-    ];
+    this.totalMileage = this.horses.reduce((acc, horse: Horse) => {
+      acc += horse.mileage;
+      return acc;
+    }, this.totalMileage);
 
-    if (dicesValue.diceRed === 0) {
-      this.allResults.totalMileage = 0;
-      this.allResults.counter = 0;
-      this.allResults.dicesValues = [1, 1, 1];
-      return;
-    }
-
-    this.allResults.totalMileage = this.horsesService.countTotalMileage(
-      this.allResults.totalMileage,
-      dicesValue
-    );
-
-    this.allResults.counter = this.horsesService.increment(
-      this.allResults.counter
-    );
+    this.counter++;
   }
 }

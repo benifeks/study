@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AllResults } from 'src/app/models/horses/horsesModels';
+import { Horse } from 'src/app/models/horses/horsesModels';
 
 @Component({
   selector: 'app-info',
@@ -7,5 +7,7 @@ import { AllResults } from 'src/app/models/horses/horsesModels';
   styleUrls: ['./info.component.scss'],
 })
 export class InfoComponent {
-  @Input() allResults: AllResults;
+  @Input() totalMileage: number;
+  @Input() counter: number;
+  @Input() horses: Horse[];
 }
