@@ -1,5 +1,6 @@
-<div class="item">milage Red : {{ allResults.milageRed }}</div>
-<div class="item">milage Green : {{ allResults.milageGreen }}</div>
-<div class="item">milage Blue : {{ allResults.milageBlue }}</div>
-<div class="item">TOTAL MILEAGE : {{ allResults.totalMileage }}</div>
-<div class="item">MOVES MADE : {{ allResults.counter }}</div>
+<div *ngFor="let horse of horses" class="item">
+    milage {{ horse.color }} : {{ horse.mileage }}
+</div>
+
+<div class="item">TOTAL MILEAGE : {{ totalMileage }}</div>
+<div class="item">MOVES MADE : {{ counter }}</div>

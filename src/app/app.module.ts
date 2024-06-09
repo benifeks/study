@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCommonModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -15,7 +17,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSortModule } from '@angular/material/sort';
 
 import { BlackJackService } from './services/black-jack/black-jack.service';
-import { HorsesService } from './services/horses/horses.service';
 import { UsersService } from './services/table/users.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,6 +74,8 @@ import { DeckComponent } from './components/black-jack/place-bj/deck/deck.compon
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatMenuModule,
     FormsModule,
     HttpClientModule,
@@ -81,7 +84,6 @@ import { DeckComponent } from './components/black-jack/place-bj/deck/deck.compon
   ],
   providers: [
     UsersService,
-    HorsesService,
     BlackJackService,
   ],
   bootstrap: [AppComponent],
